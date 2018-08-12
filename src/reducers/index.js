@@ -1,3 +1,5 @@
-export default (state = [], action = {}) => {
-    return state
-  }
+import cityForecasts from './city'
+
+export default {
+  cityForecasts  
+}
