@@ -3,28 +3,33 @@ import { connect } from 'react-redux'
 import 'json-loader'
 import cities from '../constants/city.list.json'
 import InputForm from './components/InputForm'
+import {fetchCityWeather} from '../actions/city'
 
 class CityWeather extends React.PureComponent {
 
 
-    fetchCityWeather = (city) => {
+    findCity = (city) => {
 
-        const cityID = cities.cities.filter(c =>{
+        const cityOBJ = cities.cities.filter(c =>{
             return c.name === city.city && c.country === city.countryCode
         })[0]
 
-        console.log(cityID)
+        this.props.fetchCityWeather(cityOBJ)
     }; 
 
     render() {
 
         return (
             <div className='CityWeatherContainer'>
-                <InputForm fetchCityWeather={this.fetchCityWeather}/>
+                <InputForm findCity={this.findCity}/>
             </div>
         )
     }
 }
 
-export default CityWeather
+const mapStateToProps = ({ cityForecasts }) => {
+    return { cityForecasts }
+}
+
+export default connect(mapStateToProps,{fetchCityWeather})(CityWeather)
 

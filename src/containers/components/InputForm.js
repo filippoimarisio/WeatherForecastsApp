@@ -15,7 +15,7 @@ class InputForm extends PureComponent {
     handleSubmit = event => {
         event.preventDefault()
 
-        this.props.fetchCityWeather({
+        this.props.findCity({
             city: this.state.city,
             countryCode: this.state.countryCode,
         })
