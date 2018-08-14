@@ -1,5 +1,6 @@
 import * as request from "superagent";
 import {filipposKey} from '../constants/APIkey'
+ 
 export const FETCH_CITY_WEATHER = 'FETCH_CITY_WEATHER'
 
 
@@ -19,4 +20,8 @@ export const fetchCityWeather = (cityOBJ) => dispatch => {
       )
   
       .catch(err => alert(err));
-  };
+};
+
+
+
+

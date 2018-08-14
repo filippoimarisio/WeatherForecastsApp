@@ -9,7 +9,7 @@ class DisplayForecasts extends PureComponent {
 
     render() {
         if(!this.props.cityForecasts.list) {
-            return ''
+          return ''
         }
 
         const cityForecasts = this.props.cityForecasts
