@@ -31,7 +31,6 @@ class CityWeather extends React.PureComponent {
 
     if(this.props.currentLocation.coords && !this.props.cityForecasts.list) {
       const location = this.props.currentLocation
-      console.log('in the render function', location)
       this.findCurrentCity(location)
     }
 
@@ -45,7 +44,6 @@ class CityWeather extends React.PureComponent {
 }
 
 const mapStateToProps = ({ cityForecasts, currentLocation }) => {
-  console.log('in the MSTP', currentLocation)
     return { cityForecasts, currentLocation }
 }
 
