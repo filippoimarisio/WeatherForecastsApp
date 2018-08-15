@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import {iconsLink} from '../../constants/icons'
+import './DisplayForecasts.css'
 
 class DisplayForecasts extends PureComponent {
     constructor () {
@@ -60,90 +61,106 @@ class DisplayForecasts extends PureComponent {
         const dayFive = cityForecasts.list.filter(period => {
           return (Number(period.day) === (Number(dayFour[0].day)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(dayFour[0].month)+1))
         })
-        console.log(cityForecasts.list[0])
+        console.log(cityForecasts.list, 'weather now')
 
 
         return (
-            <div className='weatherForecasts'>
-              <h3>Weather in {cityForecasts.city.name} for the next 5 days</h3>
-              <div className='dayZero'>
-                {dayZero.map(period => (
-                  <div key={period.dt}>
-                    <div className='time'>
-                      {`${period.time}:00`}
-                    </div>
-                    <div className='description'>
-                      {period.weather[0].description}
-                    </div>
-                    <img className='weather icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
+            <div className='weatherForecastsWrapper'>
+              <h1 className='city'>{cityForecasts.city.name}</h1>
+
+                <div className='weatherNow'>
+                  <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/>
+                  <div className='descriptionNow'>
+                    {cityForecasts.list[0].weather[0].description}
                   </div>
-                ))}
-              </div>
-              <div className='dayOne'>
-                {dayOne.map(period => (
-                  <div key={period.dt}>
-                    <div className='time'>
-                      {`${period.time}:00`}
+                </div>
+
+                <h4 className='laterToday'>Later Today</h4>
+
+                <div className='dayZero' >
+                  {dayZero.map(period => (
+                    <div key={period.dt} className='periodWrapper'>
+                      <div className='time'>
+                        {`${period.time}:00`}
+                      </div>
+                      <div className='description'>
+                        {period.weather[0].description}
+                      </div>
+                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
-                    <div className='description'>
-                      {period.weather[0].description}
+                  ))}
+                </div>
+                <h4 className='nextDays'>Next Days</h4>
+
+                <div className='dayOne'>
+                  {dayOne.map(period => (
+                    <div key={period.dt} className='periodWrapper'>
+                      <div className='time'>
+                        {`${period.time}:00`}
+                      </div>
+                      <div className='description'>
+                        {period.weather[0].description}
+                      </div>
+                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
-                    <img className='weather icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                  </div>
-                ))}
-              </div>
-              <div className='dayTwo'>
-                {dayTwo.map(period => (
-                  <div key={period.dt}>
-                    <div className='time'>
-                      {`${period.time}:00`}
+                  ))}
+                </div>
+
+                {/* <div className='dayTwo' className='dayWrapper'>
+                  {dayTwo.map(period => (
+                    <div key={period.dt} className='periodWrapper'>
+                      <div className='time'>
+                        {`${period.time}:00`}
+                      </div>
+                      <div className='description'>
+                        {period.weather[0].description}
+                      </div>
+                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
-                    <div className='description'>
-                      {period.weather[0].description}
+                  ))}
+                </div>
+
+                <div className='dayThree' className='dayWrapper'>
+                  {dayThree.map(period => (
+                    <div key={period.dt} className='periodWrapper'>
+                      <div className='time'>
+                        {`${period.time}:00`}
+                      </div>
+                      <div className='description'>
+                        {period.weather[0].description}
+                      </div>
+                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
-                    <img className='weather icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                  </div>
-                ))}
-              </div>
-              <div className='dayThree'>
-                {dayThree.map(period => (
-                  <div key={period.dt}>
-                    <div className='time'>
-                      {`${period.time}:00`}
+                  ))}
+                </div>
+                <div className='dayFour' className='dayWrapper'>
+                  {dayFour.map(period => (
+                    <div key={period.dt} className='periodWrapper'>
+                      <div className='time'>
+                        {`${period.time}:00`}
+                      </div>
+                      <div className='description'>
+                        {period.weather[0].description}
+                      </div>
+                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
-                    <div className='description'>
-                      {period.weather[0].description}
+                  ))}
+                </div>
+                <div className='dayFive' className='dayWrapper'>
+                  {dayFive.map(period => (
+                    <div key={period.dt} className='periodWrapper'>
+                      <div className='time'>
+                        {`${period.time}:00`}
+                      </div>
+                      <div className='description'>
+                        {period.weather[0].description}
+                      </div>
+                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
-                    <img className='weather icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                  </div>
-                ))}
-              </div>
-              <div className='dayFour'>
-                {dayFour.map(period => (
-                  <div key={period.dt}>
-                    <div className='time'>
-                      {`${period.time}:00`}
-                    </div>
-                    <div className='description'>
-                      {period.weather[0].description}
-                    </div>
-                    <img className='weather icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                  </div>
-                ))}
-              </div>
-              <div className='dayFive'>
-                {dayFive.map(period => (
-                  <div key={period.dt}>
-                    <div className='time'>
-                      {`${period.time}:00`}
-                    </div>
-                    <div className='description'>
-                      {period.weather[0].description}
-                    </div>
-                    <img className='weather icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div> */}
+
+
             </div>
         )
     } 

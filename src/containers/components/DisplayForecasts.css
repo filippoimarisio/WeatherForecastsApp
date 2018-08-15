@@ -1,0 +1,108 @@
+.weatherForecastsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 8fr;
+  width: 75%;
+  margin-left: 150px;
+  margin-right: 150px;
+  height: 300px;
+}
+
+.city {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 8;
+  background-color: lightgreen;
+  text-align: center;
+  height: 70px;
+}
+
+.laterToday{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+
+}
+
+.nextDays{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+}
+
+.periodWrapper{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 2fr 1fr;
+  background-color: lightslategrey;
+  border: line;
+  border-radius: 5%;
+  margin:2px;
+}
+
+.time{
+  font-size: 10px;
+  grid-row-start: 1/2;
+  grid-column-start: 1;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+}
+
+.icon{
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+
+}
+
+.description{
+  font-size: 12px;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+}
+
+.weatherNow{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 7;
+  align-self: center;
+  background-color: azure;
+  font-size: 50px;
+  justify-self: center;
+  padding: 100px;
+}
+
+.iconNow{
+  height: 200px;
+  width: auto;
+}
+
+.dayZero{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 10;
+  background-color: lightskyblue;
+  align-self: start;
+}
+
+dayOne{
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 10;
+  background-color: red;
+  align-self: start;
+}

@@ -5,6 +5,7 @@ import cities from '../constants/city.list.json'
 import InputForm from './components/InputForm'
 import {fetchCityWeather,fetchCurrentCityWeather} from '../actions/city'
 import {getLocation} from '../actions/currentLocation'
+import './CityWeather.css'
 
 import DisplayForecasts from './components/DisplayForecasts'
 
@@ -36,7 +37,7 @@ class CityWeather extends React.PureComponent {
 
     return (
       <div className='CityWeatherContainer'>
-        <InputForm findCity={this.findCity}/>
+        <InputForm className='inputForm' findCity={this.findCity}/>
         <DisplayForecasts cityForecasts={this.props.cityForecasts}/>
       </div>
     )
