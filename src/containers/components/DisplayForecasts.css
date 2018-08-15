@@ -103,10 +103,14 @@
   align-self: start;
 }
 
-dayOne{
+.nextDaysItems{
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 10;
   align-self: start;
+}
+
+#icona {
+  margin-left: 60px;
 }

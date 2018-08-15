@@ -77,6 +77,7 @@ class DisplayForecasts extends PureComponent {
 
                 <h4 className='laterToday'>Later Today</h4>
 
+                
                 <div className='dayZero' >
                   {dayZero.map(period => (
                     <div key={period.dt} className='periodWrapper'>
@@ -90,9 +91,108 @@ class DisplayForecasts extends PureComponent {
                     </div>
                   ))}
                 </div>
-                <h4 className='nextDays'>Next Days</h4>
 
-                <div className='dayOne'>
+                <h4 className='nextDays'>Next Days</h4>
+                <div className='nextDaysItems'>
+                  <div className='periodWrapper'>
+                    <div className='time'>
+                      {`${dayZero[0].day}-${dayZero[0].month}`}
+                    </div>
+                    
+                    <div className='description'>
+                      {dayZero[0].weather[0].description}
+                    </div>
+                    <div>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayZero[0].weather[0].icon}.png`}/>
+                    </div>
+                  </div>
+
+                  <div className='periodWrapper'>
+                    <div className='time'>
+                      {`${dayOne[5].day}-${dayOne[5].month}`}
+                    </div>
+                    <div>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayOne[5].weather[0].icon}.png`}/>
+                    </div>
+                    <div className='description'>
+                      {dayOne[5].weather[0].description}
+                    </div>
+                  </div>
+
+                  <div className='periodWrapper'>
+                    <div className='time'>
+                      {`${dayTwo[5].day}-${dayTwo[5].month}`}
+                    </div>
+                    <div>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayTwo[5].weather[0].icon}.png`}/>
+                    </div>
+                    <div className='description'>
+                      {dayTwo[5].weather[0].description}
+                    </div>
+                  </div>
+
+                  <div className='periodWrapper'>
+                    <div className='time'>
+                      {`${dayThree[5].day}-${dayThree[5].month}`}
+                    </div>
+                    <div>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayThree[5].weather[0].icon}.png`}/>
+                    </div>
+                    <div className='description'>
+                      {dayThree[5].weather[0].description}
+                    </div>
+                  </div>
+
+                  <div className='periodWrapper'>
+                    <div className='time'>
+                      {`${dayFour[5].day}-${dayFour[5].month}`}
+                    </div>
+                    <div>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFour[5].weather[0].icon}.png`}/>
+                    </div>
+                    <div className='description'>
+                      {dayFour[5].weather[0].description}
+                    </div>
+                  </div>
+
+                  <div className='periodWrapper'>
+                    <div className='time'>
+                      {`${dayFive[5].day}-${dayFive[5].month}`}
+                    </div>
+                    <div>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[5].weather[0].icon}.png`}/>
+                    </div>
+                    <div className='description'>
+                      {dayFive[5].weather[0].description}
+                    </div>
+                  </div>
+                </div>
+            </div>
+        )
+    } 
+}
+
+export default DisplayForecasts
+
+
+
+// const dayMain = day => {
+//   day.filter(period => {
+//     if(period.weather[0].main === 'Rain') return period
+//     else if(period.weather[0].main === 'Cloud') return period
+//     else if(period.weather[0].main === 'Clear') return period
+//     else return period
+//   })
+  
+//     day[0].mainWeather = day[0].weather[0].main,
+//     day[0].mainIcon = day[0].weather[0].icon,
+//     day[0].date = day[0].day, '-', day[0].month
+  
+// }
+
+
+
+{/* <div className='dayOne'>
                   {dayOne.map(period => (
                     <div key={period.dt} className='periodWrapper'>
                       <div className='time'>
@@ -106,7 +206,7 @@ class DisplayForecasts extends PureComponent {
                   ))}
                 </div>
 
-                {/* <div className='dayTwo' className='dayWrapper'>
+                <div className='dayTwo' className='dayWrapper'>
                   {dayTwo.map(period => (
                     <div key={period.dt} className='periodWrapper'>
                       <div className='time'>
@@ -161,12 +261,8 @@ class DisplayForecasts extends PureComponent {
                 </div> */}
 
 
-            </div>
-        )
-    } 
-}
 
-export default DisplayForecasts
+
 
 
 
