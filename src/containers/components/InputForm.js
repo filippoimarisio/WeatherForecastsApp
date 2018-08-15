@@ -24,6 +24,7 @@ class InputForm extends PureComponent {
     render() {
         return (
             <div className='inputForm'>
+              <h3>Search City</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>
