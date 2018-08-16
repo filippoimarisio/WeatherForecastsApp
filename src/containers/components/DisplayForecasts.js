@@ -1,5 +1,10 @@
 import React, { PureComponent } from 'react'
 import {iconsLink} from '../../constants/icons'
+import {
+  CircularProgress,
+  Paper,
+  Typography,
+} from '@material-ui/core'
 import './DisplayForecasts.css'
 
 class DisplayForecasts extends PureComponent {
@@ -9,11 +14,31 @@ class DisplayForecasts extends PureComponent {
         this.state= {}
     }
 
-    render() {
+    InCelsius = (degrees) => {
+      console.log('in the the celsius', degrees)
+      return  (degrees - 273.15).toFixed(0)
+       
+    }
 
-        if(!this.props.cityForecasts.list) {
-          return ''
-        }
+    render() {
+            
+      if(!this.props.cityForecasts.list) {
+        return (
+          <div 
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '70vh',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: 'auto',
+              }}
+              >
+                <CircularProgress />{' '}
+                <Typography>Checking current location...</Typography>
+          </div>
+        )
+      }
 
         const cityForecasts = this.props.cityForecasts
 
@@ -26,6 +51,8 @@ class DisplayForecasts extends PureComponent {
           period.day = day
           period.month = month
           period.time = time
+          period.weather[0].description = period.weather[0].description.charAt(0).toUpperCase()+ period.weather[0].description.slice(1)
+          period.main.temp = this.InCelsius(period.main.temp)
           return period
         })
 
@@ -85,7 +112,7 @@ class DisplayForecasts extends PureComponent {
                         {`${period.time}:00`}
                       </div>
                       <div className='description'>
-                        {period.weather[0].description}
+                        {period.main.temp}°C
                       </div>
                       <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
@@ -100,7 +127,7 @@ class DisplayForecasts extends PureComponent {
                     </div>
                     
                     <div className='description'>
-                      {dayZero[0].weather[0].description}
+                      {dayZero[0].main.temp}°C
                     </div>
                     <div>
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayZero[0].weather[0].icon}.png`}/>
@@ -115,7 +142,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayOne[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayOne[5].weather[0].description}
+                      {dayOne[5].main.temp}°C
                     </div>
                   </div>
 
@@ -127,7 +154,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayTwo[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayTwo[5].weather[0].description}
+                      {dayTwo[5].main.temp}°C
                     </div>
                   </div>
 
@@ -139,7 +166,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayThree[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayThree[5].weather[0].description}
+                      {dayThree[5].main.temp}°C
                     </div>
                   </div>
 
@@ -151,11 +178,11 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFour[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayFour[5].weather[0].description}
+                      {dayFour[5].main.temp}°C
                     </div>
                   </div>
 
-                  {dayFive[5] && (
+                  {dayFive[5] ?  (
                   <div className='periodWrapper'>
                     <div className='time'>
                       {`${dayFive[5].day}-${dayFive[5].month}`}
@@ -164,19 +191,19 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayFive[5].weather[0].description}
+                      {dayFive[5].main.temp}°C
                     </div>
                   </div>
-                  ) (
+                  ):(
                   <div className='periodWrapper'>
                     <div className='time'>
-                      {`${dayFive[dayFive.lenght -1].day}-${dayFive[dayFive.lenght -1].month}`}
+                      {`${dayFive[dayFive.length -1].day}-${dayFive[dayFive.length -1].month}`}
                     </div>
                     <div>
-                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[dayFive.lenght -1].weather[0].icon}.png`}/>
+                      <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[dayFive.length -1].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayFive[dayFive.lenght -1].weather[0].description}
+                      {dayFive[dayFive.length -1].main.temp}
                     </div>
                   </div>
                   )}
@@ -188,154 +215,3 @@ class DisplayForecasts extends PureComponent {
 
 export default DisplayForecasts
 
-
-
-// const dayMain = day => {
-//   day.filter(period => {
-//     if(period.weather[0].main === 'Rain') return period
-//     else if(period.weather[0].main === 'Cloud') return period
-//     else if(period.weather[0].main === 'Clear') return period
-//     else return period
-//   })
-  
-//     day[0].mainWeather = day[0].weather[0].main,
-//     day[0].mainIcon = day[0].weather[0].icon,
-//     day[0].date = day[0].day, '-', day[0].month
-  
-// }
-
-
-
-{/* <div className='dayOne'>
-                  {dayOne.map(period => (
-                    <div key={period.dt} className='periodWrapper'>
-                      <div className='time'>
-                        {`${period.time}:00`}
-                      </div>
-                      <div className='description'>
-                        {period.weather[0].description}
-                      </div>
-                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                    </div>
-                  ))}
-                </div>
-
-                <div className='dayTwo' className='dayWrapper'>
-                  {dayTwo.map(period => (
-                    <div key={period.dt} className='periodWrapper'>
-                      <div className='time'>
-                        {`${period.time}:00`}
-                      </div>
-                      <div className='description'>
-                        {period.weather[0].description}
-                      </div>
-                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                    </div>
-                  ))}
-                </div>
-
-                <div className='dayThree' className='dayWrapper'>
-                  {dayThree.map(period => (
-                    <div key={period.dt} className='periodWrapper'>
-                      <div className='time'>
-                        {`${period.time}:00`}
-                      </div>
-                      <div className='description'>
-                        {period.weather[0].description}
-                      </div>
-                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                    </div>
-                  ))}
-                </div>
-                <div className='dayFour' className='dayWrapper'>
-                  {dayFour.map(period => (
-                    <div key={period.dt} className='periodWrapper'>
-                      <div className='time'>
-                        {`${period.time}:00`}
-                      </div>
-                      <div className='description'>
-                        {period.weather[0].description}
-                      </div>
-                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                    </div>
-                  ))}
-                </div>
-                <div className='dayFive' className='dayWrapper'>
-                  {dayFive.map(period => (
-                    <div key={period.dt} className='periodWrapper'>
-                      <div className='time'>
-                        {`${period.time}:00`}
-                      </div>
-                      <div className='description'>
-                        {period.weather[0].description}
-                      </div>
-                      <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
-                    </div>
-                  ))}
-                </div> */}
-
-
-
-
-
-
-
-
-// {dayZero[0] && (
-//   <ul>
-//       {dayZero.map(period => {
-//           return (
-//               <li key={period.dt}>
-//                   {`${period.dt_txt} : ${period.weather[0].main}`}
-//               </li>
-//           )
-//       })}
-//   </ul>
-//   )}
-//   <ul>
-//       {dayOne.map(period => {
-//           return (
-//               <li key={period.dt}>
-//                   {`${period.dt_txt} : ${period.weather[0].main}`}
-//               </li>
-//           )
-//       })}
-//   </ul>
-//   <ul>
-//       {dayTwo.map(period => {
-//           return (
-//               <li key={period.dt}>
-//                   {`${period.dt_txt} : ${period.weather[0].main}`}
-//               </li>
-//           )
-//       })}
-//   </ul>
-//   <ul>
-//       {dayThree.map(period => {
-//           return (
-//               <li key={period.dt}>
-//                   {`${period.dt_txt} : ${period.weather[0].main}`}
-//               </li>
-//           )
-//       })}
-//   </ul>
-//   <ul>
-//       {dayFour.map(period => {
-//           return (
-//               <li key={period.dt}>
-//                   {`${period.dt_txt} : ${period.weather[0].main}`}
-//               </li>
-//           )
-//       })}
-//   </ul>
-//   {dayFive[0] && (
-//   <ul>
-//       {dayFive.map(period => {
-//           return (
-//               <li key={period.dt}>
-//                   {`${period.dt_txt} : ${period.weather[0].main}`}
-//               </li>
-//           )
-//       })}
-//   </ul>
-//   )}
