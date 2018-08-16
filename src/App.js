@@ -16,8 +16,9 @@ class App extends Component {
   }
 
   render() {
+            
 
-    const weatherClasses = ['https://wallpapercave.com/wp/Z4CD0Ic.jpg','https://wallpapercave.com/wp/Z4CD0Ic.jpg']
+    const weatherClasses = ['https://www.publicdomainpictures.net/pictures/200000/nahled/plain-white-background-1480544970glP.jpg','https://www.publicdomainpictures.net/pictures/200000/nahled/plain-white-background-1480544970glP.jpg']
 
     if (this.props.cityForecasts.list) {
       this.backgroundImage(this.props.cityForecasts, weatherClasses)
@@ -25,7 +26,11 @@ class App extends Component {
 
     return (
       <div className='mainContainer'
-      style={{ padding: 10, backgroundImage: `url('${weatherClasses[0]}')`, backgroundSize:'cover'}}>
+        style={{ 
+          padding: 10, 
+          backgroundImage: `url('${weatherClasses[0]}')`, 
+          backgroundSize:'cover'
+        }}>
         <CityWeather/>
       </div>
     );
