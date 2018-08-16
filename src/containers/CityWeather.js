@@ -17,10 +17,7 @@ class CityWeather extends React.PureComponent {
   }
 
   findCity = (city) => {
-    const cityOBJ = cities.cities.filter(c =>{
-      return c.name === city.city && c.country === city.countryCode
-    })[0]
-    this.props.fetchCityWeather(cityOBJ)
+    this.props.fetchCityWeather(city)
   };
 
   findCurrentCity = (currentCity) => {
