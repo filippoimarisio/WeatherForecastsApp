@@ -11,6 +11,7 @@ import {
   TextField,
   CardActions
 } from '@material-ui/core'
+import './InputForm.css'
 
 class InputForm extends PureComponent {
   constructor(props) {
@@ -64,7 +65,7 @@ class InputForm extends PureComponent {
               marginRight: 'auto',
               left: 0,
               right: 0,
-              top: '66px',
+              top: '60px',
               zIndex: '2',
               border: '1px solid black',
               backgroundColor: 'transparent',
@@ -95,7 +96,6 @@ class InputForm extends PureComponent {
 
         return (
             <div className='inputForm'>
-              <h3>Search City</h3>
               <form>
                   <TextField
                     type="text"
