@@ -14,8 +14,13 @@ class DisplayForecasts extends PureComponent {
         this.state= {}
     }
 
-    render() {
+    InCelsius = (degrees) => {
+      console.log('in the the celsius', degrees)
+      return  (degrees - 273.15).toFixed(0)
+       
+    }
 
+    render() {
             
       if(!this.props.cityForecasts.list) {
         return (
@@ -47,6 +52,7 @@ class DisplayForecasts extends PureComponent {
           period.month = month
           period.time = time
           period.weather[0].description = period.weather[0].description.charAt(0).toUpperCase()+ period.weather[0].description.slice(1)
+          period.main.temp = this.InCelsius(period.main.temp)
           return period
         })
 
@@ -106,7 +112,7 @@ class DisplayForecasts extends PureComponent {
                         {`${period.time}:00`}
                       </div>
                       <div className='description'>
-                        {period.weather[0].description}
+                        {period.main.temp}°C
                       </div>
                       <img className='icon' alt='' src={`${iconsLink}${period.weather[0].icon}.png`}/>
                     </div>
@@ -121,7 +127,7 @@ class DisplayForecasts extends PureComponent {
                     </div>
                     
                     <div className='description'>
-                      {dayZero[0].weather[0].description}
+                      {dayZero[0].main.temp}°C
                     </div>
                     <div>
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayZero[0].weather[0].icon}.png`}/>
@@ -136,7 +142,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayOne[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayOne[5].weather[0].description}
+                      {dayOne[5].main.temp}°C
                     </div>
                   </div>
 
@@ -148,7 +154,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayTwo[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayTwo[5].weather[0].description}
+                      {dayTwo[5].main.temp}°C
                     </div>
                   </div>
 
@@ -160,7 +166,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayThree[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayThree[5].weather[0].description}
+                      {dayThree[5].main.temp}°C
                     </div>
                   </div>
 
@@ -172,7 +178,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFour[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayFour[5].weather[0].description}
+                      {dayFour[5].main.temp}°C
                     </div>
                   </div>
 
@@ -185,7 +191,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[5].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayFive[5].weather[0].description}
+                      {dayFive[5].main.temp}°C
                     </div>
                   </div>
                   ):(
@@ -197,7 +203,7 @@ class DisplayForecasts extends PureComponent {
                       <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[dayFive.length -1].weather[0].icon}.png`}/>
                     </div>
                     <div className='description'>
-                      {dayFive[dayFive.length -1].weather[0].description}
+                      {dayFive[dayFive.length -1].main.temp}
                     </div>
                   </div>
                   )}

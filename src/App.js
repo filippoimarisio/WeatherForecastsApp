@@ -9,6 +9,7 @@ class App extends Component {
     
       const forecasts = this.props.cityForecasts.list[0].weather[0].main
       weatherClasses.pop()
+      console.log('in the appJS',weatherClasses)
 
       if (forecasts === 'Clouds') weatherClasses.unshift('http://www.wallpapers4u.org/wp-content/uploads/clouds_reflection_sky_water_white_blue_6431_1920x1080.jpg');
       if (forecasts === 'Clear') weatherClasses.unshift('https://aliaydin29.files.wordpress.com/2011/03/vadi-arka-plan.jpg');
