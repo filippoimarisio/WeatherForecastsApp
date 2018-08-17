@@ -6,25 +6,22 @@ import InputForm from './components/InputForm'
 import {fetchCityWeather,fetchCurrentCityWeather} from '../actions/city'
 import {getLocation} from '../actions/currentLocation'
 import './CityWeather.css'
-
 import DisplayForecasts from './components/DisplayForecasts'
 
 class CityWeather extends React.PureComponent {
 
-
-  componentDidMount() {
-      this.props.getLocation()
+  componentDidMount = () => {
+    this.props.getLocation()
   }
 
-  findCity = (city) => {
+  findCity = city => {
     this.props.fetchCityWeather(city)
   };
 
-  findCurrentCity = (currentCity) => {
+  findCurrentCity = currentCity => {
     this.props.fetchCurrentCityWeather(currentCity)  
   }
   
-
   render() {
 
     if(this.props.currentLocation.coords && !this.props.cityForecasts.list) {

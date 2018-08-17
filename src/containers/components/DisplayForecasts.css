@@ -47,7 +47,6 @@
   margin:2px;
   margin-right: 5px;
   margin-left: 5px;
-
 }
 
 .time{
@@ -65,7 +64,6 @@
   align-self: center;
   justify-self: center;
   padding: 0;
-
 }
 
 .description{
@@ -92,9 +90,6 @@
 .iconNow{
   height: 200px;
   width: auto;
-  margin-left: 30px;
-  /* margin-right: 40px; */
-
 }
 
 .tempNow{
