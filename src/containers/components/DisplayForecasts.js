@@ -13,9 +13,7 @@ class DisplayForecasts extends PureComponent {
   }
 
   InCelsius = degrees => {
-    console.log('in the the celsius', degrees)
     return  (degrees - 273.15).toFixed(0)
-      
   }
 
   render() {
@@ -85,8 +83,6 @@ class DisplayForecasts extends PureComponent {
     const dayFive = cityForecasts.list.filter(period => {
       return (Number(period.day) === (Number(dayFour[0].day)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(dayFour[0].month)+1))
     })
-    console.log(cityForecasts.list, 'weather now')
-
 
     return (
       <div className='weatherForecastsWrapper'>
