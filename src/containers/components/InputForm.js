@@ -22,116 +22,87 @@ class InputForm extends PureComponent {
     }
   }
 
-    handleChange = event => {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-            [name]: value,
-        });
-    }
+  handleChange = event => {
 
-    handleSubmit = event => {
-      console.log(event) 
+      const value = event.target.value;
+      const name = event.target.name;
+      this.setState({
+          [name]: value,
+      });
+  }
 
-        this.props.findCity(event)
-        this.setState({searchCity: ''})
-    }
+  handleSubmit = event => {
 
-    // handleSearchCity = city => {
-    //   this.setState({searchCity: ''})
-    // }
+      this.props.findCity(event)
+      this.setState({searchCity: ''})
+  }
 
-    renderSearchCity = () => {
-      console.log(this.props,'line 49')
+  renderSearchCity = () => {
 
-      const filteredCities = cities.cities.filter(city => {
-        const cityName = city.name.toLowerCase()
-        const regex = new RegExp(this.state.searchCity.toLowerCase())
-        if(this.state.searchCity.length > 3) {
-          return cityName.match(regex)
-        }
-        return null
-      })
-      if (filteredCities.length > 0 ) {
-        return (
-          <Card>
-          <CardContent
-            style={{
-              padding: '0.5rem',
-              maxWidth: '100%',
-              // position: 'absolute',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              left: 0,
-              right: 0,
-              top: '60px',
-              zIndex: '2',
-              border: '1px solid black',
-              backgroundColor: 'transparent',
-              textAlign: 'center'
-            }}
-            >
-            <ul
-              style={{ listStyleType: 'none', textAlign: 'left', padding: 0, maxHeight: 100 }}>
-              {filteredCities.map(city => {
-                return (
-                  <li key={city.id}>
-                    <Button onClick={() => this.handleSubmit(city)}>
-                      <Typography variant="body1">
-                        {city.name}, {city.country}
-                      </Typography>
-                    </Button>
-                  </li>
-                )
-              })}
-            </ul>
-          </CardContent>
-        </Card>
-        )
+    const filteredCities = cities.cities.filter(city => {
+      const cityName = city.name.toLowerCase()
+      const regex = new RegExp(this.state.searchCity.toLowerCase())
+      if(this.state.searchCity.length > 3) {
+        return cityName.match(regex)
       }
+        return null
+    })
+    if (filteredCities.length > 0 ) {
+      return (
+        <Card>
+        <CardContent
+          style={{
+            padding: '0.5rem',
+            maxWidth: '100%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            left: 0,
+            right: 0,
+            top: '60px',
+            zIndex: '2',
+            border: '1px solid black',
+            backgroundColor: 'transparent',
+            textAlign: 'center'
+          }}
+        >
+          <ul
+            style={{ listStyleType: 'none', textAlign: 'left', padding: 0, maxHeight: 100 }}>
+            {filteredCities.map(city => {
+              return (
+                <li key={city.id}>
+                  <Button onClick={() => this.handleSubmit(city)}>
+                    <Typography variant="body1">
+                      {city.name}, {city.country}
+                    </Typography>
+                  </Button>
+                </li>
+              )
+            })}
+          </ul>
+        </CardContent>
+      </Card>
+      )
     }
+  }
 
-    render() {
+  render() {
 
-        return (
-            <div className='inputForm'>
-              <form>
-                  <TextField
-                    type="text"
-                    // style={{
-                    //   padding: '1rem',
-                    //   margin: '1rem',
-                    //   minWidth: '250px',
-                    //   fontSize: '1rem'
-                    // }}
-                    name="searchCity"
-                    placeholder=" Search city..."
-                    onChange={this.handleChange}
-                    value={this.state.searchCity}
-                    autoComplete="off"
-                  />
-                  {this.renderSearchCity()}
-                </form>
-            </div>
-        )
-      
-    } 
+    return (
+      <div className='inputForm'>
+        <form>
+          <TextField
+            type="text"
+            name="searchCity"
+            placeholder=" Search city..."
+            onChange={this.handleChange}
+            value={this.state.searchCity}
+            autoComplete="off"
+          />
+          {this.renderSearchCity()}
+        </form>
+      </div>
+    ) 
+  } 
 }
 
 export default InputForm
-
-{/* <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label>
-                            City:
-                            <input type="text" name="city" onChange={this.handleChange} />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Country code:
-                            <input type="text" name="countryCode" onChange={this.handleChange} />
-                        </label>
-                    </div>
-                    <input type="submit" value="Submit" />
-                </form> */}
