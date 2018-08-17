@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import {iconsLink} from '../../constants/icons'
 import {
   CircularProgress,
-  Paper,
   Typography,
 } from '@material-ui/core'
 import './DisplayForecasts.css'

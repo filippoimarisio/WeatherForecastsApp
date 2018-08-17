@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import 'json-loader'
-import cities from '../constants/city.list.json'
 import InputForm from './components/InputForm'
 import {fetchCityWeather,fetchCurrentCityWeather} from '../actions/city'
 import {getLocation} from '../actions/currentLocation'
