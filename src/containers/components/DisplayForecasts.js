@@ -7,10 +7,6 @@ import {
 import './DisplayForecasts.css'
 
 class DisplayForecasts extends PureComponent {
-  constructor () {
-      super()
-      this.state= {}
-  }
 
   InCelsius = degrees => {
     return  (degrees - 273.15).toFixed(0)
@@ -89,7 +85,7 @@ class DisplayForecasts extends PureComponent {
         <h1 className='city'>{cityForecasts.city.name}</h1>
 
         <div className='weatherNow'>
-          <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/>
+          <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/> <br/>
           <div className='descriptionNow'>
             {cityForecasts.list[0].weather[0].description}
           </div>
