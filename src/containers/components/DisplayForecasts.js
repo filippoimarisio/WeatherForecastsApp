@@ -8,10 +8,6 @@ import './DisplayForecasts.css'
 
 class DisplayForecasts extends PureComponent {
 
-  InCelsius = degrees => {
-    return  (degrees - 273.15).toFixed(0)
-  }
-
   render() {
           
     if(!this.props.cityForecasts.list) {
@@ -43,19 +39,13 @@ class DisplayForecasts extends PureComponent {
       period.month = month
       period.time = time
       period.weather[0].description = period.weather[0].description.charAt(0).toUpperCase()+ period.weather[0].description.slice(1)
-      period.main.temp = this.InCelsius(period.main.temp)
+      period.main.temp = (period.main.temp - 273.15).toFixed(0)
       return period
     })
 
-    var today = new Date();
-    var ddd = today.getDate();
-    var mmm = today.getMonth()+1;
-    if(ddd<10) ddd = '0'+ddd
-    if(mmm<10) mmm = '0'+mmm
-    var dd = ddd.toString()
-    var mm = mmm.toString()
+    const dd = cityForecasts.list[0].day
+    const mm = cityForecasts.list[0].month
 
-      
     const dayZero = cityForecasts.list.filter(period => {
       return period.day === dd && period.month === mm
     })
@@ -85,7 +75,7 @@ class DisplayForecasts extends PureComponent {
         <h1 className='city'>{cityForecasts.city.name}</h1>
 
         <div className='weatherNow'>
-          <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/> <br/>
+          <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/>
           <div className='descriptionNow'>
             {cityForecasts.list[0].weather[0].description}
           </div>

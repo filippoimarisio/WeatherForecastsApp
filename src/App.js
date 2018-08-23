@@ -29,9 +29,9 @@ class App extends Component {
     return (
       <div className='mainContainer'
         style={{ 
-          padding: 10, 
+          padding: 10,
           backgroundImage: `url('${weatherClasses[0]}')`, 
-          backgroundSize:'cover'
+          backgroundSize:'cover',
         }}>
         <CityWeather/>
       </div>

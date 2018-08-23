@@ -1,6 +1,7 @@
 .inputForm{
   position: absolute;
-  right: 570px;
-  left: 570px;
+  right: 590px;
+  left: 560px;
   top: 510px;
+  z-index: 1;
 }

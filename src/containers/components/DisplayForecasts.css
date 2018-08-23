@@ -3,12 +3,13 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 8fr;
   width: 75%;
-  margin-left: 150px;
-  margin-right: 150px;
-  height: 680px;
+  margin-left: 12%;
+  margin-right: 15%;
+  height: 42em;
   border: solid;
   margin-top: 5px;
   background-color:white;
+  opacity: 0.85;
 }
 
 .city {
@@ -86,19 +87,19 @@
   align-content: center;
   padding: 50px;
   margin-bottom: 200px;
+  display: grid;
+  grid-template-columns: '1fr 1fr';
+  grid-template-rows: '1fr 1fr 2fr';
+  align-content: center
 }
 
 .iconNow{
   height: 200px;
   width: auto;
-}
-
-.tempNow{
-  background-color: aquamarine;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  position: relative;
-  margin-bottom: 300px;
+  grid-column-start: 1/2;
+  grid-row-start: 1/2;
+  align-self: center;
+  justify-self: center;
 }
 
 .dayZero{

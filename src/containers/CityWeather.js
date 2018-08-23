@@ -6,6 +6,8 @@ import {fetchCityWeather,fetchCurrentCityWeather} from '../actions/city'
 import {getLocation} from '../actions/currentLocation'
 import './CityWeather.css'
 import DisplayForecasts from './components/DisplayForecasts'
+import './components/DisplayForecasts.css'
+
 
 class CityWeather extends React.PureComponent {
 
