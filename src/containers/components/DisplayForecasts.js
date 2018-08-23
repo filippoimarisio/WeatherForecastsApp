@@ -172,17 +172,19 @@ class DisplayForecasts extends PureComponent {
             </div>
           ):(
 
-            <div className='periodWrapper'>
-              <div className='time'>
-                {`${dayFive[dayFive.length -1].day}-${dayFive[dayFive.length -1].month}`}
+            (dayFive.length >= 1 && (
+              <div className='periodWrapper'>
+                <div className='time'>
+                  {`${dayFive[dayFive.length -1].day}-${dayFive[dayFive.length -1].month}`}
+                </div>
+                <div>
+                  <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[dayFive.length -1].weather[0].icon}.png`}/>
+                </div>
+                <div className='description'>
+                  {dayFive[dayFive.length -1].main.temp}°C
+                </div>
               </div>
-              <div>
-                <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[dayFive.length -1].weather[0].icon}.png`}/>
-              </div>
-              <div className='description'>
-                {dayFive[dayFive.length -1].main.temp}°C
-              </div>
-            </div>
+            ))
           )}
         </div>
       </div>
