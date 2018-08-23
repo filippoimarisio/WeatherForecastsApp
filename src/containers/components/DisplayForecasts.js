@@ -47,15 +47,9 @@ class DisplayForecasts extends PureComponent {
       return period
     })
 
-    let today = new Date();
-    let ddd = today.getDate();
-    let mmm = today.getMonth()+1;
-    if(ddd<10) ddd = '0'+ddd
-    if(mmm<10) mmm = '0'+mmm
-    let dd = ddd.toString()
-    let mm = mmm.toString()
+    const dd = cityForecasts.list[0].day
+    const mm = cityForecasts.list[0].month
 
-      
     const dayZero = cityForecasts.list.filter(period => {
       return period.day === dd && period.month === mm
     })
