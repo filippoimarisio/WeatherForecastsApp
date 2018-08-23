@@ -40,7 +40,7 @@ class CityWeather extends React.PureComponent {
 }
 
 const mapStateToProps = ({ cityForecasts, currentLocation }) => {
-    return { cityForecasts, currentLocation }
+  return { cityForecasts, currentLocation }
 }
 
 export default connect(mapStateToProps,{fetchCityWeather, getLocation, fetchCurrentCityWeather})(CityWeather)
