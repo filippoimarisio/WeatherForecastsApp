@@ -47,13 +47,13 @@ class DisplayForecasts extends PureComponent {
       return period
     })
 
-    var today = new Date();
-    var ddd = today.getDate();
-    var mmm = today.getMonth()+1;
+    let today = new Date();
+    let ddd = today.getDate();
+    let mmm = today.getMonth()+1;
     if(ddd<10) ddd = '0'+ddd
     if(mmm<10) mmm = '0'+mmm
-    var dd = ddd.toString()
-    var mm = mmm.toString()
+    let dd = ddd.toString()
+    let mm = mmm.toString()
 
       
     const dayZero = cityForecasts.list.filter(period => {

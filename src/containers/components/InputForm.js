@@ -38,11 +38,10 @@ class InputForm extends PureComponent {
 
     const filteredCities = cities.cities.filter(city => {
       const cityName = city.name.toLowerCase()
-      const regex = new RegExp(this.state.searchCity.toLowerCase())
+      const inputCity = this.state.searchCity.toLowerCase()
       if(this.state.searchCity.length > 3) {
-        return cityName.match(regex)
-      }
-        return null
+        return cityName.match(inputCity)
+      } return null
     })
     if (filteredCities.length > 0 ) {
       return (
@@ -62,8 +61,7 @@ class InputForm extends PureComponent {
             textAlign: 'center'
           }}
         >
-          <ul
-            style={{ listStyleType: 'none', textAlign: 'left', padding: 0, maxHeight: 100 }}>
+          <ul className='citySuggest'>
             {filteredCities.map(city => {
               return (
                 <li key={city.id}>

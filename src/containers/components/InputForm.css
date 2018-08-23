@@ -1,4 +1,8 @@
-ul {
+.citySuggest {
   overflow: scroll;
   overflow-x: hidden;
+  list-style-type: 'none';
+  text-align: 'left';
+  padding: 0;
+  max-height: 100px;
 }
