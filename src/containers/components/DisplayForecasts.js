@@ -75,7 +75,7 @@ class DisplayForecasts extends PureComponent {
         <h1 className='city'>{cityForecasts.city.name}</h1>
 
         <div className='weatherNow'>
-          <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/> <br/>
+          <img className='iconNow' alt='' src={`${iconsLink}${cityForecasts.list[0].weather[0].icon}.png`}/>
           <div className='descriptionNow'>
             {cityForecasts.list[0].weather[0].description}
           </div>
