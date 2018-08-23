@@ -8,10 +8,6 @@ import './DisplayForecasts.css'
 
 class DisplayForecasts extends PureComponent {
 
-  InCelsius = degrees => {
-    return  (degrees - 273.15).toFixed(0)
-  }
-
   render() {
           
     if(!this.props.cityForecasts.list) {
@@ -43,7 +39,7 @@ class DisplayForecasts extends PureComponent {
       period.month = month
       period.time = time
       period.weather[0].description = period.weather[0].description.charAt(0).toUpperCase()+ period.weather[0].description.slice(1)
-      period.main.temp = this.InCelsius(period.main.temp)
+      period.main.temp = (period.main.temp - 273.15).toFixed(0)
       return period
     })
 

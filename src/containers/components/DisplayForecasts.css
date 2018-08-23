@@ -86,11 +86,19 @@
   align-content: center;
   padding: 50px;
   margin-bottom: 200px;
+  display: grid;
+  grid-template-columns: '1fr 1fr';
+  grid-template-rows: '1fr 1fr 2fr';
+  align-content: center
 }
 
 .iconNow{
   height: 200px;
   width: auto;
+  grid-column-start: 1/2;
+  grid-row-start: 1/2;
+  align-self: center;
+  justify-self: center;
 }
 
 .tempNow{
