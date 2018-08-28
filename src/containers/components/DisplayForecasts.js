@@ -20,18 +20,12 @@ class DisplayForecasts extends PureComponent {
           
     if(!this.props.cityForecasts.list) {
       return (
-        <div 
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '70vh',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: 'auto',
-        }}
-        >
+        <div className='noLocation'>
           <CircularProgress />{' '}
           <Typography>Checking current location...</Typography>
+          <div className='noLocationInput'>
+            <InputForm findCity={this.findCity}/>
+          </div>
         </div>
       )
     }
