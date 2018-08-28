@@ -16,7 +16,7 @@
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
-  grid-row-end: 8;
+  grid-row-end: 6;
   text-align: center;
   height: 70px;
 }
@@ -27,7 +27,6 @@
   grid-row-start: 1;
   grid-row-end: 2;
   text-align: center;
-
 }
 
 .nextDays{
@@ -38,6 +37,17 @@
   text-align: center;
 }
 
+.inputForm{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* grid-row-start: 5;
+  grid-row-end: 8; */
+  text-align: center;
+  align-self: flex-start;
+  background-color: brown;
+}
+
+
 .periodWrapper{
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -45,7 +55,7 @@
   background-color: rgb(167, 167, 207);
   border: line;
   border-radius: 5px;
-  margin:2px;
+  margin: 2px;
   margin-right: 5px;
   margin-left: 5px;
   height:70px;
@@ -81,7 +91,7 @@
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
-  grid-row-end: 7;
+  grid-row-end: 5;
   align-self: center;
   font-size: 50px;
   justify-self: center;
@@ -91,7 +101,8 @@
   display: grid;
   grid-template-columns: '1fr 1fr';
   grid-template-rows: '1fr 1fr 2fr';
-  align-content: center
+  align-content: center;
+  background-color: red;
 }
 
 .iconNow{
@@ -109,6 +120,8 @@
   grid-row-start: 2;
   grid-row-end: 10;
   align-self: start;
+  background-color: black;
+
 }
 
 .nextDaysItems{
@@ -117,8 +130,11 @@
   grid-row-start: 2;
   grid-row-end: 10;
   align-self: start;
+  background-color: black;
+
 }
 
 #icona {
   margin-left: 60px;
 }
+

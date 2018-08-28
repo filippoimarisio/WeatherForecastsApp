@@ -5,8 +5,16 @@ import {
   Typography,
 } from '@material-ui/core'
 import './DisplayForecasts.css'
+import InputForm from './InputForm'
+import {fetchCityWeather} from '../../actions/city'
+import { connect } from 'react-redux'
+
 
 class DisplayForecasts extends PureComponent {
+
+  findCity = city => {
+    this.props.fetchCityWeather(city)
+  };
 
   render() {
           
@@ -192,10 +200,15 @@ class DisplayForecasts extends PureComponent {
             ))
           )}
         </div>
+        <InputForm className='inputForm' findCity={this.findCity}/>
       </div>
     )
   } 
 }
 
-export default DisplayForecasts
+const mapStateToProps = ({ cityForecasts }) => {
+  return { cityForecasts }
+}
+
+export default connect (mapStateToProps,{fetchCityWeather}) (DisplayForecasts)
 
