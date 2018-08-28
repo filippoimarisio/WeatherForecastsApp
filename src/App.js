@@ -32,6 +32,7 @@ class App extends Component {
           padding: 10,
           backgroundImage: `url('${weatherClasses[0]}')`, 
           backgroundSize:'cover',
+          "height": "100%",
         }}>
         <CityWeather/>
       </div>
