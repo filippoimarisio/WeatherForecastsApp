@@ -51,23 +51,28 @@ class DisplayForecasts extends PureComponent {
     })
 
     const dayOne = cityForecasts.list.filter(period => {
-      return (Number(period.day) === (Number(dd)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(mm)+1))
+      if (period.day === '01') return period.day === '01'
+      return Number(period.day) === (Number(dd)+1) && period.month === mm
     })
 
     const dayTwo = cityForecasts.list.filter(period => {
-      return (Number(period.day) === (Number(dayOne[0].day)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(dayOne[0].month)+1))
+      if (period.day === '01') return period.day === '01'
+      return Number(period.day) === (Number(dayOne[0].day)+1) && period.month === mm
     })
 
     const dayThree = cityForecasts.list.filter(period => {
-      return (Number(period.day) === (Number(dayTwo[0].day)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(dayTwo[0].month)+1))
+      if (period.day === '01') return period.day === '01'
+      return Number(period.day) === (Number(dayTwo[0].day)+1) && period.month === mm
     })
 
     const dayFour = cityForecasts.list.filter(period => {
-      return (Number(period.day) === (Number(dayThree[0].day)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(dayThree[0].month)+1))
+      if (period.day === '01') return period.day === '01'
+      return Number(period.day) === (Number(dayThree[0].day)+1) && period.month === mm
     })
 
     const dayFive = cityForecasts.list.filter(period => {
-      return (Number(period.day) === (Number(dayFour[0].day)+1) && period.month === mm) || (Number(period.day) === '01' && period.month === (Number(dayFour[0].month)+1))
+      if (period.day === '01') return period.day === '01'
+      return Number(period.day) === (Number(dayFour[0].day)+1) && period.month === mm
     })
 
     return (
