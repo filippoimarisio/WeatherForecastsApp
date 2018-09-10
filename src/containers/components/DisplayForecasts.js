@@ -8,6 +8,7 @@ import './DisplayForecasts.css'
 import InputForm from './InputForm'
 import {fetchCityWeather} from '../../actions/city'
 import { connect } from 'react-redux'
+import NextDaysCard from './NextDaysCard'
 
 
 class DisplayForecasts extends PureComponent {
@@ -105,93 +106,17 @@ class DisplayForecasts extends PureComponent {
 
         <h4 className='nextDays'>Next Days</h4>
         <div className='nextDaysItems'>
-          <div className='periodWrapper'>
-            <div className='time'>
-              {`${dayZero[0].day}-${dayZero[0].month}`}
-            </div>
-            <div className='description'>
-              {dayZero[0].main.temp}°C
-            </div>
-            <div>
-              <img className='icon' id='icona' alt='' src={`${iconsLink}${dayZero[0].weather[0].icon}.png`}/>
-            </div>
-          </div>
-
-          <div className='periodWrapper'>
-            <div className='time'>
-              {`${dayOne[5].day}-${dayOne[5].month}`}
-            </div>
-            <div>
-              <img className='icon' id='icona' alt='' src={`${iconsLink}${dayOne[5].weather[0].icon}.png`}/>
-            </div>
-            <div className='description'>
-              {dayOne[5].main.temp}°C
-            </div>
-          </div>
-
-          <div className='periodWrapper'>
-            <div className='time'>
-              {`${dayTwo[5].day}-${dayTwo[5].month}`}
-            </div>
-            <div>
-              <img className='icon' id='icona' alt='' src={`${iconsLink}${dayTwo[5].weather[0].icon}.png`}/>
-            </div>
-            <div className='description'>
-              {dayTwo[5].main.temp}°C
-            </div>
-          </div>
-
-          <div className='periodWrapper'>
-            <div className='time'>
-              {`${dayThree[5].day}-${dayThree[5].month}`}
-            </div>
-            <div>
-              <img className='icon' id='icona' alt='' src={`${iconsLink}${dayThree[5].weather[0].icon}.png`}/>
-            </div>
-            <div className='description'>
-              {dayThree[5].main.temp}°C
-            </div>
-          </div>
-
-          <div className='periodWrapper'>
-            <div className='time'>
-              {`${dayFour[5].day}-${dayFour[5].month}`}
-            </div>
-            <div>
-              <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFour[5].weather[0].icon}.png`}/>
-            </div>
-            <div className='description'>
-              {dayFour[5].main.temp}°C
-            </div>
-          </div>
-
+          <NextDaysCard day={dayZero} periodRef={0}/>
+          <NextDaysCard day={dayOne} periodRef={5}/>
+          <NextDaysCard day={dayTwo} periodRef={5}/>
+          <NextDaysCard day={dayThree} periodRef={5}/>
+          <NextDaysCard day={dayFour} periodRef={5}/>
           {dayFive[5] ?  (
-            <div className='periodWrapper'>
-              <div className='time'>
-                {`${dayFive[5].day}-${dayFive[5].month}`}
-              </div>
-              <div>
-                <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[5].weather[0].icon}.png`}/>
-              </div>
-              <div className='description'>
-                {dayFive[5].main.temp}°C
-              </div>
-            </div>
+            <NextDaysCard day={dayFive} periodRef={5}/>
           ):(
-
-            (dayFive.length >= 1 && (
-              <div className='periodWrapper'>
-                <div className='time'>
-                  {`${dayFive[dayFive.length -1].day}-${dayFive[dayFive.length -1].month}`}
-                </div>
-                <div>
-                  <img className='icon' id='icona' alt='' src={`${iconsLink}${dayFive[dayFive.length -1].weather[0].icon}.png`}/>
-                </div>
-                <div className='description'>
-                  {dayFive[dayFive.length -1].main.temp}°C
-                </div>
-              </div>
-            ))
+          (dayFive.length >= 1 && (
+            <NextDaysCard day={dayFive} periodRef={dayFive.length -1}/>
+          ))
           )}
         </div>
         <InputForm className='inputForm' findCity={this.findCity}/>
